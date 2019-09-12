@@ -36,7 +36,7 @@ def sum_to_n? arr, n
     if arr.length <2
         return false
     end
-    all_permutations = arr.permutation(2).to_a
+    all_permutations = arr.permutation(2).to_a # list of the permutations possible - avoid repeat of single number
     for i in (0..all_permutations.length-1)do
         return true if all_permutations[i][0]+all_permutations[i][1]==n
     end
@@ -65,10 +65,10 @@ end
 # Part 3
 
 class BookInStock
-    def initialize(isbn_number,price)
-        raise ArgumentError if isbn_number.to_s.empty?
+    def initialize(isbn,price)
+        raise ArgumentError if isbn.to_s.empty?
         raise ArgumentError if price<=0
-        @isbn = isbn_number
+        @isbn = isbn
         @price = price
     end
     attr_accessor :isbn, :price
